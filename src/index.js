@@ -6,11 +6,11 @@ const setupAndStartServer = async () => {
   // create the express object ->
   const app = express();
 
-  //body parser middlewares ->
+  // body parser middlewares ->
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({extended:true}));
 
-  //start the app server ->
+  // start the app server ->
   app.listen(PORT, () => {
     console.log(`Server started at ${PORT}`);
     
