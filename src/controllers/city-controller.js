@@ -113,6 +113,8 @@ const update = async (req, res) => {
 /*
  Get all the cities
 
+ data -> req.query
+
 */
 const getAll = async (req, res) => {
   try {
@@ -133,11 +135,6 @@ const getAll = async (req, res) => {
     });
   }
 };
-
-
-
-
-
 
 module.exports = {
   create,
