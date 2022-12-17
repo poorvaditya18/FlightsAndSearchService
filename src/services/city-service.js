@@ -1,4 +1,3 @@
-
 const { CityRepository } = require("../repository/index");
 
 class CityService {
@@ -41,6 +40,16 @@ class CityService {
     try {
       const city = await this.CityRepository.getCity(cityId);
       return city;
+    } catch (error) {
+      console.log("Something went wrong in Service Layer");
+      throw { error };
+    }
+  }
+
+  async getAllCities() {
+    try {
+      const cities = await this.CityRepository.getAllCities();
+      return cities;
     } catch (error) {
       console.log("Something went wrong in Service Layer");
       throw { error };
