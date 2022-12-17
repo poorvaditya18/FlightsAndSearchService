@@ -1,5 +1,5 @@
 
-We are doing role based development. - src/
+<!-- We are doing role based development. - src/
 index.js //server
 models/
 controllers/
@@ -26,7 +26,7 @@ You can store these variables in the environment. Suppose PORT can change in our
 * you need to configure the sequelize orm -> you can use sequelize-cli.
 
 - npx sequelize init
-- npx sequelize db:create
+- npx sequelize db:create -->
 
 # Welcome to Flights Service
 
@@ -50,3 +50,65 @@ You can store these variables in the environment. Suppose PORT can change in our
 }
 
 ```
+
+## DB Design : 
+
+  - we have multiple airplanes and same airplane can be used for multiple flights
+  
+  - Airplane Table : data about airplanes
+  - Flight Table :  data about flights
+  - Airport Table : data about airport
+
+  - A flight belongs to an airplane but one airplane can be used in multiple flights
+  - A city has many airports but one airports belongs to a city
+  - One airport can have many flights, but a flight belongs to one airport.
+
+
+
+## Airplane table 
+
+  - id -> this will be used to uniquely identify the city
+  - model_number-> can be same for multiple airplane
+  - capacity
+  - created_at
+  - updated_at
+
+1:N 
+one airplane can be used in many flights. 
+where as one flight can only be associated to one airplane
+
+
+
+## Flights Table 
+
+  - id - unique id to identify the flight
+  - departure_city_id
+  - destination_ city_id
+  - airplane_id
+  - departure
+  - arrival
+  - flight number
+
+1:N
+From one airport many flights can be flied but one flight can fly from one airport in particular city.
+
+
+## city
+  - id
+  - name
+
+
+1:N
+In one city there can be multiple airports but one airport can belong to one city
+
+## airport 
+  - id 
+  - name
+  - city_id
+  - address  
+
+
+NOTE : Sequelize cli bydefault creates 'id'.  
+
+## by mistake if you migrated ->
+use npx sequelize db:migrate:undo
