@@ -51,6 +51,14 @@ You can store these variables in the environment. Suppose PORT can change in our
 
 ```
 
+```
+- Once you've added your db config as listed above , go to the src folder from your terminal and execute `npx sequelize db:create`
+and then execute
+
+  `npx sequelize db:migrate`
+ 
+```
+
 ## DB Design : 
 
   - we have multiple airplanes and same airplane can be used for multiple flights
@@ -109,6 +117,3 @@ In one city there can be multiple airports but one airport can belong to one cit
 
 
 NOTE : Sequelize cli bydefault creates 'id'.  
-
-## by mistake if you migrated ->
-use npx sequelize db:migrate:undo
