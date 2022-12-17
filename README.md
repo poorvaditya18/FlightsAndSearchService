@@ -117,3 +117,23 @@ In one city there can be multiple airports but one airport can belong to one cit
 
 
 NOTE : Sequelize cli bydefault creates 'id'.  
+
+* Idea : We can segregate the logic of controllers , routes, middlewares in their respective place. Why ??
+Reason : To write clean code and enhance the usability.
+
+<!-- 
+
+Express ROUTER : used to write clean code .
+
+/birds
+/birds/about
+/birds/help
+
+const birds = require('./birds');
+app.use('/birds',birds);
+        .
+        .
+        .
+* we can make some prefixes
+router.get('/',)
+ -->

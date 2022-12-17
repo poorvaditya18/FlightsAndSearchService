@@ -39,7 +39,7 @@ class CityRepository {
   // update city
   async updateCity(cityId, data) {
     try {
-      // The below approach also works but will not return updated object
+      // * The below approach also works but will not return updated object
       // if you are using Pg then returning:true can be used,else not 
       // const city = await City.update(data, {
       //   where: {
@@ -47,7 +47,7 @@ class CityRepository {
       //   },
       // });
 
-      // for getting updated data in mysql we use this ->
+      // * for getting updated data in mysql we use this ->
       const city = await City.findByPk(cityId);
       city.name = data.name;
       await city.save();
