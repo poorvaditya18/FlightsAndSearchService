@@ -7,8 +7,7 @@
 const { City } = require("../models/index");
 
 class CityRepository {
-
-//    create city  
+  //    create city
   async createCity({ name }) {
     // {name: "New Delhi"}
     try {
@@ -22,7 +21,7 @@ class CityRepository {
     }
   }
 
-//   delete city
+  //   delete city
   async deleteCity(cityId) {
     try {
       await City.destroy({
@@ -37,7 +36,7 @@ class CityRepository {
     }
   }
 
-// update city
+  // update city
   async updateCity(cityId, data) {
     try {
       const city = await City.update(data, {
@@ -49,7 +48,7 @@ class CityRepository {
     } catch (error) {}
   }
 
-//   get city
+  //   get city
   async getCity(cityId) {
     try {
       const city = await City.findByPk(cityId);
