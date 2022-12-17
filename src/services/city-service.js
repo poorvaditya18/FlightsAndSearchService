@@ -1,4 +1,4 @@
-const { response } = require("express");
+
 const { CityRepository } = require("../repository/index");
 
 class CityService {
@@ -19,8 +19,8 @@ class CityService {
 
   async deleteCity(cityId) {
     try {
-      const response = await this.CityRepository.deleteCity(cityId);
-      return response;
+      const res = await this.CityRepository.deleteCity(cityId);
+      return res;
     } catch (error) {
       console.log("Something went wrong in Service Layer");
       throw { error };

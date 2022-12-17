@@ -9,6 +9,7 @@ const cityService = new CityService();
 /* 
     Create API ->
     Method : post
+    url : /city
     data -> req.body
 */
 const create = async (req, res) => {
