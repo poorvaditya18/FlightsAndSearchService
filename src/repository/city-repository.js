@@ -54,7 +54,11 @@ class CityRepository {
       city.name = data.name;
       await city.save();
       return city;
-    } catch (error) {}
+    } catch (error) {
+      console.log("Something went wrong in the repository layer");
+      throw { error };
+
+    }
   }
 
   //   get city
