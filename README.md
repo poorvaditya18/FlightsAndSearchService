@@ -1,4 +1,3 @@
-
 <!-- We are doing role based development. - src/
 index.js //server
 models/
@@ -56,72 +55,67 @@ You can store these variables in the environment. Suppose PORT can change in our
 and then execute
 
   `npx sequelize db:migrate`
- 
+
 ```
 
-## DB Design : 
+## DB Design :
 
-  - we have multiple airplanes and same airplane can be used for multiple flights
-  
-  - Airplane Table : data about airplanes
-  - Flight Table :  data about flights
-  - Airport Table : data about airport
+- we have multiple airplanes and same airplane can be used for multiple flights
 
-  - A flight belongs to an airplane but one airplane can be used in multiple flights
-  - A city has many airports but one airports belongs to a city
-  - One airport can have many flights, but a flight belongs to one airport.
+- Airplane Table : data about airplanes
+- Flight Table : data about flights
+- Airport Table : data about airport
 
+- A flight belongs to an airplane but one airplane can be used in multiple flights
+- A city has many airports but one airports belongs to a city
+- One airport can have many flights, but a flight belongs to one airport.
 
+## Airplane table
 
-## Airplane table 
+- id -> this will be used to uniquely identify the city
+- model_number-> can be same for multiple airplane
+- capacity
+- created_at
+- updated_at
 
-  - id -> this will be used to uniquely identify the city
-  - model_number-> can be same for multiple airplane
-  - capacity
-  - created_at
-  - updated_at
-
-1:N 
-one airplane can be used in many flights. 
+1:N
+one airplane can be used in many flights.
 where as one flight can only be associated to one airplane
 
+## Flights Table
 
-
-## Flights Table 
-
-  - id - unique id to identify the flight
-  - departure_city_id
-  - destination_ city_id
-  - airplane_id
-  - departure
-  - arrival
-  - flight number
+- id - unique id to identify the flight
+- departure_city_id
+- destination\_ city_id
+- airplane_id
+- departure
+- arrival
+- flight number
 
 1:N
 From one airport many flights can be flied but one flight can fly from one airport in particular city.
 
-
 ## city
-  - id
-  - name
 
+- id
+- name
 
 1:N
 In one city there can be multiple airports but one airport can belong to one city
 
-## airport 
-  - id 
-  - name
-  - city_id
-  - address  
+## airport
 
+- id
+- name
+- city_id
+- address
 
-NOTE : Sequelize cli bydefault creates 'id'.  
+NOTE : Sequelize cli bydefault creates 'id'.
 
-* Idea : We can segregate the logic of controllers , routes, middlewares in their respective place. Why ??
-Reason : To write clean code and enhance the usability.
+- Idea : We can segregate the logic of controllers , routes, middlewares in their respective place. Why ??
+  Reason : To write clean code and enhance the usability.
 
-<!-- 
+<!--
 
 Express ROUTER : used to write clean code .
 
@@ -137,3 +131,16 @@ app.use('/birds',birds);
 * we can make some prefixes
 router.get('/',)
  -->
+
+## Tables
+
+### City --> id,name, created_at, updated_at
+
+### Airport --> id,name,address,city_id,created_at,updated_at
+    Relationship -> city has many airports and airport belongs to a city (one to many)
+
+
+### Seeders -> helps us to put some starting value
+
+
+
