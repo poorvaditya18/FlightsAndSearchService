@@ -41,8 +41,10 @@ class FlightService {
 }
 
 // How controller will send data -> ?
+
 /*
- * {
+ * 
+{
     flightNumber,
     airplaneId,
     departureAirportId,
@@ -53,6 +55,7 @@ class FlightService {
     totalSeats -> we need to fetch from airplane
 }
  * 
+
  */
 
 module.exports = FlightService;
