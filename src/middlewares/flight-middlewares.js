@@ -2,13 +2,8 @@
 
 // middlewares are simple functions that have access to the request , response , next
 
-// flightNumber,
-// airplaneId,
-// departureAirportId,
-// arrivalAirportId,
-// arrivalTime,
-// departureTime,
-// price,
+// example -> we can put the user authentication in middlewares
+const { ClientErrorsCodes } = require("../utils/error-codes");
 
 const validateCreateFlight = (req, res, next) => {
   if (
@@ -23,7 +18,7 @@ const validateCreateFlight = (req, res, next) => {
     // if any of the body param is missing you come inside the if
     // 400 -> is the bad request : you are not following the api contract
 
-    return res.status(400).json({
+    return res.status(ClientErrorsCodes.BAD_REQUEST).json({
       data: {},
       success: true,
       message: "Invalid Request Body for create Flight",
