@@ -38,6 +38,17 @@ class FlightService {
       throw { error };
     }
   }
+
+  //get particular flight
+  async getFlight(flightId) {
+    try {
+      const flight = await this.flightRepository.getFlight(flightId);
+      return flight;
+    } catch (error) {
+      console.log("Something went wrong at service layer");
+      throw { error };
+    }
+  }
 }
 
 // How controller will send data -> ?
