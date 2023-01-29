@@ -20,6 +20,7 @@ module.exports = {
         type: Sequelize.INTEGER,
         onDelete: "CASCADE",
         references: {
+          // we need to do binding ... id column from cities will act as primary key for city and foreign key for airport
           model: "Cities",
           key: "id",
           as: "city_id",

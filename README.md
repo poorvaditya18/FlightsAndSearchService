@@ -137,10 +137,23 @@ router.get('/',)
 ### City --> id,name, created_at, updated_at
 
 ### Airport --> id,name,address,city_id,created_at,updated_at
-    Relationship -> city has many airports and airport belongs to a city (one to many)
 
+    Relationship -> city has many airports and airport belongs to a city (one to many)
 
 ### Seeders -> helps us to put some starting value
 
-
-
+ <!-- Method to implement joins instead of writing whole raw join query*/ 
+    // const city = await City.findOne({
+    //   where: {
+    //     id: 2,
+    //   },
+    // });
+    // console.log(city);
+    // const airports = await city.getAirports();
+    // console.log(city, airports);
+    // const newairport = await Airport.findOne({
+    //   where: {
+    //     id: 15,
+    //   },
+    // });
+    // await city.addAirport(newairport); -->

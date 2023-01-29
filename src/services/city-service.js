@@ -49,6 +49,7 @@ class CityService {
   async getAllCities(filter) {
     try {
       // {name:filter.name} -> initially making check for query params 
+      // as user can send you more params so here we only required 'name' 
       const cities = await this.CityRepository.getAllCities({name:filter.name});
       return cities;
     } catch (error) {

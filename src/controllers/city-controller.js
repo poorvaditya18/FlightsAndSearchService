@@ -2,6 +2,7 @@
 
 const { CityService } = require("../services/index");
 
+// city service object
 const cityService = new CityService();
 // how controllers work ?
 // we will seggregate all the logic route, middleware,controller
@@ -57,12 +58,11 @@ const destroy = async (req, res) => {
   }
 };
 
-/**
- *
- *  GET API ->
- *  METHOD  -> GET
- *  Route -> /city/:id
- *  data -> req.params.id
+/*
+  GET API ->
+  METHOD  -> GET
+  Route -> /city/:id
+  data -> req.params.id
  */
 const get = async (req, res) => {
   try {
@@ -85,10 +85,11 @@ const get = async (req, res) => {
 };
 
 /**
- *
+ * Update API ->
  * method : PATCH
  * route : /city/:id -> req.body
- *
+ * cityId : req.params.id
+ * data(parameter which we want to update) : req.body
  */
 const update = async (req, res) => {
   try {
@@ -112,9 +113,7 @@ const update = async (req, res) => {
 
 /*
  Get all the cities
-
  data -> req.query
-
 */
 const getAll = async (req, res) => {
   try {

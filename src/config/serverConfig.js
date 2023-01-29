@@ -1,6 +1,7 @@
 // Here we will require everything ->
 // cleaner way to setup 
-const dotenv = require("dotenv");
+
+const dotenv = require("dotenv"); // this returns dotenv object
 
 dotenv.config();
 

@@ -21,8 +21,6 @@ class CityRepository {
     }
   }
 
-
-
   //   delete city
   async deleteCity(cityId) {
     try {
@@ -38,11 +36,11 @@ class CityRepository {
     }
   }
 
-  // update city
+  // update city - will take cityID( which city we want to update), data(parameter which we want to update)
   async updateCity(cityId, data) {
     try {
       // * The below approach also works but will not return updated object
-      // if you are using Pg then returning:true can be used,else not
+      // if you are using PgSQl then returning:true can be used,else not
       // const city = await City.update(data, {
       //   where: {
       //     id: cityId,
@@ -75,7 +73,6 @@ class CityRepository {
   //get all the cities
   async getAllCities(filter) {
     // filter can be empty also  . we will pass it as the query param
-
     try {
       if (filter.name) {
         const cities = await City.findAll({
