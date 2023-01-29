@@ -6,7 +6,7 @@ const { CityRepository } = require("./repository/index");
 const ApiRoutes = require("./routes/index");
 
 const db = require("./models/index");
-const { City, Airport } = require("./models/index");
+const { City, Airport, Airplane } = require("./models/index");
 
 const setupAndStartServer = async () => {
   // create the express object ->
@@ -21,9 +21,7 @@ const setupAndStartServer = async () => {
 
   // start the app server ->
   app.listen(PORT, async () => {
-    
     console.log(`Server started at ${PORT}`);
-
     // synchronization -> use CAREFULLY !!
     if (process.env.SYNC_DB) {
       //so whenever you want to sync db add the env variable "SYNC_DB"
