@@ -42,6 +42,19 @@ class FlightService {
     }
   }
 
+  //update flight TODO
+//  async updateFlight(flightId,data)
+//  {
+//   try {
+//     const res = await this.flightRepository.updateFlight(flightId,data);
+//     return res;
+//   } catch (error) {
+//     console.log("Something went wrong at service layer");
+//       throw { error };
+//   }
+//  }
+
+
   // Get All Flights ->
   async getAllFlightData(data) {
     try {

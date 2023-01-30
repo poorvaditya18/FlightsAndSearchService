@@ -45,6 +45,16 @@ class FlightRepository {
     return filter;
   }
 
+  #updateFilter(data) {
+    let filter = { ...data };
+    if (data.arrivalTime && data.departureTime && data.price) {
+      filter.arrivalTime = data.arrivalTime;
+      filter.departureTime = data.departureTime;
+      filter.price = data.price;
+    }
+    return filter;
+  }
+
   //create flight
   async createFlight(data) {
     try {
@@ -55,9 +65,8 @@ class FlightRepository {
       throw { error };
     }
   }
-  
 
-  // delete a flight 
+  // delete a flight
   async deleteFlight(flightId) {
     try {
       await Flights.destroy({
@@ -72,9 +81,28 @@ class FlightRepository {
     }
   }
 
-
-
-
+  // TODO->
+  // async updateFlight(flightId, data) {
+  //   // data  -> arrivalTime,departureTime,price
+  //   try {
+  //     const filterObject = this.#updateFilter(data);
+  //     console.log(filterObject);
+  //     const flight = await Flights.update(filterObject, {
+  //       where: {
+  //         id: flightId,
+  //       },
+  //     });
+  //     // console.log(flight);
+  //     // flight.departureTime = data.departureTime;
+  //     // flight.arrivalTime = data.arrivalTime;
+  //     // flight.price = data.price;
+  //     // await flight.save();
+  //     return flight;
+  //   } catch (error) {
+  //     console.log("Something went wrong in the repository layer");
+  //     throw { error };
+  //   }
+  // }
 
   //get particular flight data
   // suppose you are building bording pass then in that case you will require particular flight data
@@ -91,16 +119,16 @@ class FlightRepository {
   // get all flights
   async getAllFlights(filter) {
     try {
-        const filterObject = this.#createFilter(filter);
-        const flight = await Flights.findAll({
-            where: filterObject
-        });
-        return flight;
+      const filterObject = this.#createFilter(filter);
+      const flight = await Flights.findAll({
+        where: filterObject,
+      });
+      return flight;
     } catch (error) {
-        console.log("Something went wrong in the repository layer");
-        throw {error};
+      console.log("Something went wrong in the repository layer");
+      throw { error };
     }
-}
+  }
 }
 
 module.exports = FlightRepository;

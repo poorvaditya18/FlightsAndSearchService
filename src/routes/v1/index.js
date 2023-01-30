@@ -31,6 +31,9 @@ router.post(
 //delete a flight
 router.delete("/flights/:id", FlightController.destroy);
 
+//update a flight - TODO
+// router.patch("/flights/:id", FlightController.update);
+
 //get all flights
 router.get("/flights", FlightController.getAll);
 //get a particular flight
@@ -38,5 +41,13 @@ router.get("/flights/:id", FlightController.get);
 
 // create airport
 router.post("/airports", AirportController.create);
+//getAll
+router.get("/airports", AirportController.getAll);
+//get a particular airport
+router.get("/airports/:id", AirportController.get);
+//delete airport
+router.delete("/airports/:id", AirportController.destroy);
+//update a airport
+router.patch("/airports/:id", AirportController.update);
 
 module.exports = router;
