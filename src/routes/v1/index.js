@@ -32,7 +32,7 @@ router.post(
 router.delete("/flights/:id", FlightController.destroy);
 
 //update a flight - TODO
-// router.patch("/flights/:id", FlightController.update);
+router.patch("/flights/:id", FlightController.update);
 
 //get all flights
 router.get("/flights", FlightController.getAll);

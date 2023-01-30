@@ -46,7 +46,7 @@ class FlightRepository {
   }
 
   #updateFilter(data) {
-    let filter = { ...data };
+    let filter = {};
     if (data.arrivalTime && data.departureTime && data.price) {
       filter.arrivalTime = data.arrivalTime;
       filter.departureTime = data.departureTime;
@@ -82,27 +82,27 @@ class FlightRepository {
   }
 
   // TODO->
-  // async updateFlight(flightId, data) {
-  //   // data  -> arrivalTime,departureTime,price
-  //   try {
-  //     const filterObject = this.#updateFilter(data);
-  //     console.log(filterObject);
-  //     const flight = await Flights.update(filterObject, {
-  //       where: {
-  //         id: flightId,
-  //       },
-  //     });
-  //     // console.log(flight);
-  //     // flight.departureTime = data.departureTime;
-  //     // flight.arrivalTime = data.arrivalTime;
-  //     // flight.price = data.price;
-  //     // await flight.save();
-  //     return flight;
-  //   } catch (error) {
-  //     console.log("Something went wrong in the repository layer");
-  //     throw { error };
-  //   }
-  // }
+  async updateFlight(flightId, data) {
+    // data  -> arrivalTime,departureTime,price
+    try {
+      const filterObject = this.#updateFilter(data);
+      // console.log(filterObject);
+      const flight = await Flights.update(filterObject, {
+        where: {
+          id: flightId,
+        },
+      });
+      // console.log(flight);
+      // flight.departureTime = data.departureTime;
+      // flight.arrivalTime = data.arrivalTime;
+      // flight.price = data.price;
+      // await flight.save();
+      return flight;
+    } catch (error) {
+      console.log("Something went wrong in the repository layer");
+      throw { error };
+    }
+  }
 
   //get particular flight data
   // suppose you are building bording pass then in that case you will require particular flight data

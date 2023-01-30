@@ -1,7 +1,5 @@
 // Here we are going to setup all the middlewares that are going to setup the flight
-
 // middlewares are simple functions that have access to the request , response , next
-
 // example -> we can put the user authentication in middlewares
 const { ClientErrorsCodes } = require("../utils/error-codes");
 

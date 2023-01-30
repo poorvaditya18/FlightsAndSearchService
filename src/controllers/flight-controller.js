@@ -56,25 +56,25 @@ const destroy = async (req, res) => {
 };
 
 //TODO
-// const update = async (req, res) => {
-//   try {
-//     const response = await flightService.updateFlight(req.params.id, req.body);
-//     return res.status(200).json({
-//       data: response,
-//       success: true,
-//       message: "Successfully Updated a Flight",
-//       err: {},
-//     });
-//   } catch (error) {
-//     console.log(error);
-//     return res.status(500).json({
-//       data: {},
-//       success: false,
-//       message: "Not able to update the Flight",
-//       err: error,
-//     });
-//   }
-// };
+const update = async (req, res) => {
+  try {
+    const response = await flightService.updateFlight(req.params.id, req.body);
+    return res.status(200).json({
+      data: response,
+      success: true,
+      message: "Successfully Updated a Flight",
+      err: {},
+    });
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({
+      data: {},
+      success: false,
+      message: "Not able to update the Flight",
+      err: error,
+    });
+  }
+};
 
 // Get All flight ->
 const getAll = async (req, res) => {
@@ -124,5 +124,5 @@ module.exports = {
   getAll,
   get,
   destroy,
-  // update,
+  update,
 };
