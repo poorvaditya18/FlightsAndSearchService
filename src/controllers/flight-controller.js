@@ -34,6 +34,28 @@ const create = async (req, res) => {
   }
 };
 
+// delete a flight
+const destroy = async (req, res) => {
+  try {
+    const response = await flightService.deleteFlight(req.params.id);
+    return res.status(200).json({
+      data: response,
+      success: true,
+      message: "Successfully Deleted a Flight",
+      err: {},
+    });
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({
+      data: {},
+      success: false,
+      message: "Not able to delete a Flight",
+      err: error,
+    });
+  }
+};
+
+// Get All flight ->
 const getAll = async (req, res) => {
   try {
     // console.log(req.query);
@@ -55,6 +77,7 @@ const getAll = async (req, res) => {
   }
 };
 
+// Get Flight ->
 const get = async (req, res) => {
   try {
     const response = await flightService.getFlight(req.params.id);
@@ -79,4 +102,5 @@ module.exports = {
   create,
   getAll,
   get,
+  destroy,
 };

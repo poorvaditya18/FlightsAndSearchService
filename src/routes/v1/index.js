@@ -21,14 +21,15 @@ router.get("/city", CityController.getAll);
 //update a city
 router.patch("/city/:id", CityController.update);
 
-
-
 // create flight
 router.post(
   "/flights",
   FlightMiddlewares.validateCreateFlight,
   FlightController.create
 );
+
+//delete a flight
+router.delete("/flights/:id", FlightController.destroy);
 
 //get all flights
 router.get("/flights", FlightController.getAll);

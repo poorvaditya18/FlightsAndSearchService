@@ -55,6 +55,26 @@ class FlightRepository {
       throw { error };
     }
   }
+  
+
+  // delete a flight 
+  async deleteFlight(flightId) {
+    try {
+      await Flights.destroy({
+        where: {
+          id: flightId,
+        },
+      });
+      return true;
+    } catch (error) {
+      console.log("Something went wrong in the repository layer");
+      throw { error };
+    }
+  }
+
+
+
+
 
   //get particular flight data
   // suppose you are building bording pass then in that case you will require particular flight data
