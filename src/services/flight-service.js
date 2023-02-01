@@ -42,12 +42,12 @@ class FlightService {
     }
   }
 
-  //update flight TODO
+  //update flight 
  async updateFlight(flightId,data)
  {
   try {
-    const res = await this.flightRepository.updateFlight(flightId,data);
-    return res;
+    const response = await this.flightRepository.updateFlight(flightId,data);
+    return response;
   } catch (error) {
     console.log("Something went wrong at service layer");
       throw { error };

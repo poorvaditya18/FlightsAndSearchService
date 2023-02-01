@@ -55,7 +55,7 @@ const destroy = async (req, res) => {
   }
 };
 
-//TODO
+// update
 const update = async (req, res) => {
   try {
     const response = await flightService.updateFlight(req.params.id, req.body);
